@@ -216,7 +216,7 @@ class TranscriptionZipper(Resource):
         else:
             return Resource.getChild(self, path, req)
 
-def serve(port=8765, interface='0.0.0.0', installSignalHandlers=0, nthreads=4, ntranscriptionthreads=2, data_dir=get_datadir('webdata')):
+def serve(port=7860, interface='0.0.0.0', installSignalHandlers=0, nthreads=4, ntranscriptionthreads=2, data_dir=get_datadir('webdata')):
     logging.info("SERVE %d, %s, %d", port, interface, installSignalHandlers)
 
     if not os.path.exists(data_dir):
@@ -254,7 +254,7 @@ if __name__=='__main__':
         description='Align a transcript to audio by generating a new language model.')
     parser.add_argument('--host', default="0.0.0.0",
                        help='host to run http server on')
-    parser.add_argument('--port', default=8765, type=int,
+    parser.add_argument('--port', default=7860, type=int,
                         help='port number to run http server on')
     parser.add_argument('--nthreads', default=multiprocessing.cpu_count(), type=int,
                         help='number of alignment threads')
